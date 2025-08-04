@@ -1,0 +1,20 @@
+$size: 1.4rem;
+
+.check-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &__label {
+    font-size: 16px;
+    color: var(--palette-text-20);
+    cursor: pointer;
+  }
+
+  &__icon-check {
+    width: $size;
+    height: $size;
+    cursor: pointer;
+    accent-color: var(--palette-primary);
+  }
+}
