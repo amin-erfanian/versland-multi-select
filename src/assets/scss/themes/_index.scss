@@ -1,0 +1,7 @@
+@use "./_light-theme" as *;
+@use "./_dark-theme" as *;
+
+$themes: (
+  light: $light-theme,
+  dark: $dark-theme,
+);

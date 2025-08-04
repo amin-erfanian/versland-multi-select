@@ -1,0 +1,13 @@
+@use "../themes" as *;
+
+:root {
+  @each $name, $value in map-get($themes, "light") {
+    --palette-#{$name}: #{$value};
+  }
+}
+
+[data-theme="dark"] {
+  @each $name, $value in map-get($themes, "dark") {
+    --palette-#{$name}: #{$value};
+  }
+}

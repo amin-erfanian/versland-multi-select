@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+button {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+
+  &:disabled {
+    color: inherit;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+label {
+  cursor: inherit;
+}
+
+input[type="range"] {
+  appearance: none;
+  background: transparent;
+  margin: 0;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+}
+
+input[type="range"]::-moz-range-thumb {
+  border: none;
+  border-radius: 0;
+}
+
+input[type="range"]::-moz-range-track {
+  background-color: transparent;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: transparent;
+}

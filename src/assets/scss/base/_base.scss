@@ -1,0 +1,16 @@
+body {
+  min-height: 100vh;
+  overflow: hidden auto;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: var(--palette-background);
+  color: var(--palette-text-10);
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
