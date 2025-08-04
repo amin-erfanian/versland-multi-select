@@ -14,7 +14,7 @@ type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   disabled?: boolean;
 };
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
+const BaseInput = React.forwardRef<HTMLInputElement, InputProps>(
   (
     {
       name,
@@ -75,4 +75,5 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
   }
 );
 
-export default Input;
+BaseInput.displayName = "BaseInput";
+export default BaseInput;
