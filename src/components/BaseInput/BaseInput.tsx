@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import styles from "./BaseInput.module.scss";
 
-type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
+type Props = React.InputHTMLAttributes<HTMLInputElement> & {
   name: string;
   variant?: "outlined" | "text";
   placeholder?: string;
@@ -14,7 +14,7 @@ type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   disabled?: boolean;
 };
 
-const BaseInput = React.forwardRef<HTMLInputElement, InputProps>(
+const BaseInput = React.forwardRef<HTMLInputElement, Props>(
   (
     {
       name,

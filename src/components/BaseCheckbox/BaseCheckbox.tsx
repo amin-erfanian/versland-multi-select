@@ -2,13 +2,13 @@ import React from "react";
 import styles from "./BaseCheckbox.module.scss";
 import classNames from "classnames";
 
-type BaseCheckboxProps = React.InputHTMLAttributes<HTMLInputElement> & {
+type Props = React.InputHTMLAttributes<HTMLInputElement> & {
   name: string;
   checked?: boolean;
   children?: React.ReactNode;
 };
 
-const BaseCheckbox = React.forwardRef<HTMLInputElement, BaseCheckboxProps>(
+const BaseCheckbox = React.forwardRef<HTMLInputElement, Props>(
   ({ name, checked, children, ...rest }, ref) => {
     return (
       <div
