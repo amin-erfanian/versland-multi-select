@@ -2,48 +2,45 @@ import BaseInput from "./components/BaseInput/BaseInput";
 import styles from "./App.module.scss";
 
 import { FieldValues, useForm } from "react-hook-form";
-import BaseCheckbox from "./components/BaseCheckbox/BaseCheckbox";
 import { useState } from "react";
+import MultiSelect, { Option } from "./components/MultiSelect/MultiSelect";
 
-const ITEMS = ["item1", "item2", "item3", "item4", "item5", "item6", "item7"];
+const INITIAL_OPTIONS: Option[] = [
+  { label: "Bitcoin", value: "BTC" },
+  { label: "Ethereum", value: "ETH" },
+  { label: "Ripple", value: "XRP" },
+  { label: "Solana", value: "SOL" },
+  { label: "Dogecoin", value: "DOGE" },
+];
 
 function App() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
-  const [checkedItems, setCheckedItems] = useState<string[]>([]);
+  const [options, setOptions] = useState<Option[]>(INITIAL_OPTIONS);
+  const [selected, setSelected] = useState<string[]>([]);
 
-  const handleCheckboxChange =
-    (item: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
-      setCheckedItems((prev) =>
-        e.target.checked ? [...prev, item] : prev.filter((i) => i !== item)
-      );
-    };
-
-  const onSubmit = (formValues: FieldValues) => console.log(formValues);
+  const onSubmit = (formValues: FieldValues) => {
+    setOptions((prev) => [
+      ...prev,
+      { label: formValues.item, value: formValues.item.toUpperCase() },
+    ]);
+    reset();
+  };
 
   return (
-    <div className={styles.demo}>
-      {checkedItems}
-      <form onSubmit={handleSubmit(onSubmit)} className={styles.demo__form}>
+    <div className={styles.content}>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.content__form}>
         <BaseInput
           {...register("item")}
-          placeholder="enter something.."
-          error="Some Error!"
-          variant="text"
+          placeholder="Add new item.."
+          variant="outlined"
         />
 
-        {ITEMS.map((item, index) => (
-          <div key={index}>
-            <BaseCheckbox
-              value={item}
-              name={item}
-              checked={checkedItems.includes(item)}
-              onChange={handleCheckboxChange(item)}
-            >
-              {item} is here
-            </BaseCheckbox>
-          </div>
-        ))}
+        <MultiSelect
+          options={options}
+          selectedValues={selected}
+          onChange={setSelected}
+        />
       </form>
     </div>
   );
