@@ -51,7 +51,8 @@ const BaseSelect = ({
           {selectedValues.length > 0
             ? multiple
               ? `${selectedValues.length} Selected`
-              : options.find((opt) => opt.value === selectedValues[0])?.label
+              : options.find((option) => option.value === selectedValues[0])
+                  ?.label
             : placeholder}
         </span>
         <span className={styles["select__arrow"]}>{isOpen ? "▲" : "▼"}</span>
