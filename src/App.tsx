@@ -3,7 +3,7 @@ import styles from "./App.module.scss";
 
 import { FieldValues, useForm } from "react-hook-form";
 import { useState } from "react";
-import MultiSelect, { Option } from "./components/MultiSelect/MultiSelect";
+import BaseSelect, { Option } from "./components/BaseSelect/BaseSelect";
 
 const INITIAL_OPTIONS: Option[] = [
   { label: "Bitcoin", value: "BTC" },
@@ -36,10 +36,11 @@ function App() {
           variant="outlined"
         />
 
-        <MultiSelect
+        <BaseSelect
           options={options}
           selectedValues={selected}
           onChange={setSelected}
+          multiple
         />
       </form>
     </div>
