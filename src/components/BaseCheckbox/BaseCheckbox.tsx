@@ -4,12 +4,13 @@ import classNames from "classnames";
 
 type Props = React.InputHTMLAttributes<HTMLInputElement> & {
   name: string;
+  type?: "checkbox" | "radio";
   checked?: boolean;
   children?: React.ReactNode;
 };
 
 const BaseCheckbox = React.forwardRef<HTMLInputElement, Props>(
-  ({ name, checked, children, ...rest }, ref) => {
+  ({ name, checked, children, type = "checkbox", ...rest }, ref) => {
     return (
       <div
         className={classNames(styles["check-box"], {
@@ -19,7 +20,7 @@ const BaseCheckbox = React.forwardRef<HTMLInputElement, Props>(
         <input
           ref={ref}
           className={styles["check-box__icon-check"]}
-          type="checkbox"
+          type={type}
           name={name}
           id={name}
           checked={checked}
