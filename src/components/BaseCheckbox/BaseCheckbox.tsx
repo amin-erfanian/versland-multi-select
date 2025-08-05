@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./BaseCheckbox.module.scss";
+import classNames from "classnames";
 
 type BaseCheckboxProps = React.InputHTMLAttributes<HTMLInputElement> & {
   name: string;
@@ -10,7 +11,11 @@ type BaseCheckboxProps = React.InputHTMLAttributes<HTMLInputElement> & {
 const BaseCheckbox = React.forwardRef<HTMLInputElement, BaseCheckboxProps>(
   ({ name, checked, children, ...rest }, ref) => {
     return (
-      <div className={styles["check-box"]}>
+      <div
+        className={classNames(styles["check-box"], {
+          [styles["check-box--checked"]]: checked,
+        })}
+      >
         <input
           ref={ref}
           className={styles["check-box__icon-check"]}

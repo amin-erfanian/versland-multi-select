@@ -1,9 +1,24 @@
 $size: 1.4rem;
 
 .check-box {
+  width: 100%;
   display: flex;
   align-items: center;
+  padding: 4px;
   gap: 8px;
+  background-color: var(--palette-background);
+
+  &:hover {
+    background-color: #eaeaea; // need to have a variant var for background
+  }
+
+  &--checked {
+    background-color: rgba($color: var(--palette-primary-rgb), $alpha: 0.3);
+  }
+
+  &--checked:hover {
+    background-color: rgba($color: var(--palette-primary-rgb), $alpha: 0.4);
+  }
 
   &__label {
     font-size: 16px;
